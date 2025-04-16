@@ -1,6 +1,6 @@
-# 🧪 Automation Testing Project Pertama Saya
+# 🧪 Automation Testing Project dengan Selenium
 
-Ini adalah project pertama saya dalam bidang **Automation Testing** dengan **Selenium**.  
+Ini adalah project pertama saya menggunakan **Selenium**.  
 Pada project ini, saya menggunakan **Python** dan **Selenium WebDriver** untuk mengotomatisasi pengujian pada aplikasi web.  
 Tujuan utama saya adalah untuk memahami dasar-dasar automation testing dan bagaimana tools ini bekerja secara efektif.
 
