@@ -26,14 +26,19 @@ Tujuan utama saya adalah untuk memahami dasar-dasar automation testing dan bagai
 ```bash
 git clone https://github.com/username/nama-repository.git
 cd nama-repository
+```
 
-Buat Virtual Environment (Opsional tapi disarankan)
+### 2. Buat Virtual Environment (Opsional tapi disarankan)
+```bash
 python -m venv venv
 source venv/bin/activate    # Mac/Linux
 venv\Scripts\activate       # Windows
+```
 
-Install Dependencies
+### 3. Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
 Jalankan Test
 pytest tests/
