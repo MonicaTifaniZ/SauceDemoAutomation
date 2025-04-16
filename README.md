@@ -40,8 +40,10 @@ venv\Scripts\activate       # Windows
 pip install -r requirements.txt
 ```
 
-Jalankan Test
+### 4. Jalankan Test
+```bash
 pytest tests/
+```
 
 
 
