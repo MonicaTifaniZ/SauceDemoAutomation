@@ -13,6 +13,9 @@ class TestLogin:
     password = Read_Config.get_password()
     invalid_username = Read_Config.get_invalid_username()
     invalid_password = Read_Config.get_invalid_password()
+    invalid_credential = Read_Config.get_invalid_credential()
+    username_required = Read_Config.get_error_username_required()
+    password_required = Read_Config.get_error_password_required()
 
     def test_title_verification(self,setup):
         self.driver = setup
@@ -42,7 +45,7 @@ class TestLogin:
         login_lp.click_login()
 
         error_message = self.driver.find_element(By.XPATH, "//h3").text
-        assert error_message == "Epic sadface: Username and password do not match any user in this service"
+        assert error_message == self.invalid_credential
 
     def test_invalid_login_password(self,setup):
         self.driver = setup
@@ -53,7 +56,7 @@ class TestLogin:
         login_lp.click_login()
 
         error_message = self.driver.find_element(By.XPATH, "//h3").text
-        assert error_message == "Epic sadface: Username and password do not match any user in this service"
+        assert error_message == self.invalid_credential
 
     def test_invalid_login_username_password(self,setup):
         self.driver = setup
@@ -64,7 +67,7 @@ class TestLogin:
         login_lp.click_login()
 
         error_message = self.driver.find_element(By.XPATH, "//h3").text
-        assert error_message == "Epic sadface: Username and password do not match any user in this service"
+        assert error_message == self.invalid_credential
 
     def test_empty_username_valid_password(self, setup):
         self.driver = setup
@@ -74,7 +77,7 @@ class TestLogin:
         login_lp.enter_password(self.password)
         login_lp.click_login()
         error_message = self.driver.find_element(By.XPATH, "//h3").text
-        assert error_message == "Epic sadface: Username is required"
+        assert error_message == self.username_required
 
     def test_username_valid_empty_password(self, setup):
         self.driver = setup
@@ -84,7 +87,7 @@ class TestLogin:
         login_lp.enter_password("")
         login_lp.click_login()
         error_message = self.driver.find_element(By.XPATH, "//h3").text
-        assert error_message == "Epic sadface: Password is required"
+        assert error_message == self.password_required
 
 
 

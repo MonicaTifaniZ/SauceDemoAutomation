@@ -1,7 +1,7 @@
 import configparser
 
 config = configparser.RawConfigParser()
-config.read(".\\configurations\\config.ini")
+config.read(".\\configurations\\LoginConfig.ini")
 
 class Read_Config:
     @staticmethod
@@ -28,3 +28,18 @@ class Read_Config:
     def get_invalid_password():
         invalid_password = config.get('login user info','invalid_password')
         return invalid_password
+
+    @staticmethod
+    def get_invalid_credential():
+        error_invalid_credential = config.get('login user info','ERROR_INVALID_CREDENTIALS')
+        return error_invalid_credential
+
+    @staticmethod
+    def get_error_username_required():
+        error_username_required = config.get('login user info', 'ERROR_USERNAME_REQUIRED')
+        return error_username_required
+
+    @staticmethod
+    def get_error_password_required():
+        error_password_required = config.get('login user info', 'ERROR_PASSWORD_REQUIRED')
+        return error_password_required

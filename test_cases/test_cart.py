@@ -25,15 +25,17 @@ class TestCart:
             EC.presence_of_all_elements_located((By.CLASS_NAME,"inventory_item"))
         )
 
-        #tambah produk ke cart
-        add_to_cart_btn = driver.find_element(By.XPATH,"(button[contains(text(),'Add to cart')])[1]")
-        add_to_cart_btn.click()
+        # Tambahkan produk pertama ke cart
+        add_to_cart_buttons = driver.find_elements(By.XPATH, "//button[contains(text(),'Add to cart')]")
+        assert len(add_to_cart_buttons) > 0, "Tidak ada tombol Add to Cart ditemukan"
+        add_to_cart_buttons[0].click()
 
-        #buka shopping cart
+        # Buka cart
         home = HomePage(driver)
         home.open_cart()
 
-        #verifikasi item ada dicart
+        # Verifikasi item ada di cart
         cart_page = CartPage(driver)
         count = cart_page.get_cart_items_count()
-        assert count == 1
+        assert count == 1, f"Jumlah item di cart tidak sesuai, ditemukan: {count}"
+
